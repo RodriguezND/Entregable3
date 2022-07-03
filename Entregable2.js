@@ -19,6 +19,7 @@ const objectoPrueba3 = {
 } 
 
 
+
 class Contenedor{
 
     constructor (nombreArchivo)
@@ -155,6 +156,30 @@ class Contenedor{
         
     }
 
+    getAllSync()
+    {
+        
+        fs.readFile(this.nombreArchivo, "utf-8", (error, contenido) => {
+        if(error)
+        {
+
+        }
+        else{
+
+            let objetoJson = JSON.parse(contenido)
+
+            console.log(contenido)
+
+            console.log(typeof objetoJson)
+
+            return objetoJson
+        }
+
+        })
+        
+        
+    }
+
     async deleteById(id)
     {
         try
@@ -210,10 +235,16 @@ class Contenedor{
 
 }
 
+module.exports = Contenedor
+
 const producto = new Contenedor("./Productos.txt")
 
 /* Guardar un objeto por vez funciona perfecto */
-producto.save(objectoPrueba2)
+/* producto.save(objectoPrueba3) */
+
+
+
+console.log(producto.getAllSync())
 
 
 /* Guardar varios objetos por vez el funcionamiento es aleatorio y guarda cualquiera */
