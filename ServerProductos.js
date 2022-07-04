@@ -4,6 +4,7 @@ const Contenedor = require("./Entregable2");
 
 const app = express()
 const PORT = 8080
+const produ = new Contenedor("./Productos.txt")
 
 const server = app.listen(PORT, () => {
 
@@ -13,17 +14,12 @@ const server = app.listen(PORT, () => {
 
 server.on("Error", error => console.log(`Error en servidor ${error}`))
 
-app.get("/productos", (req, res) => {  
+app.get("/productos", async (req, res) => {  
 
-    const produ = new Contenedor("./Productos.txt")
-
-    let proString = produ.getAllSync()
-
-    console.log("Tipo prostring: " + typeof proString)
-    console.log("Tipo funcion: " + typeof produ.getAllSync())
+    let proString = await produ.getAll()
 
     /* let proObj = JSON.stringify(proString, null, proString.length); */
 
-    res.send("Prueba para ver el objeto: " + proString)
+    res.send(proString)
 
 })

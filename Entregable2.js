@@ -147,7 +147,7 @@ class Contenedor{
             const contenido = await fs.promises.readFile(this.nombreArchivo, "utf-8")
             let objetoJson = JSON.parse(contenido)
         
-            return console.log(objetoJson)
+            return objetoJson
 
         }catch (err)
         {
@@ -156,7 +156,7 @@ class Contenedor{
         
     }
 
-    getAllSync()
+   /*  getAllSync()
     {
         
         fs.readFile(this.nombreArchivo, "utf-8", (error, contenido) => {
@@ -178,7 +178,7 @@ class Contenedor{
         })
         
         
-    }
+    } */
 
     async deleteById(id)
     {
@@ -244,7 +244,7 @@ const producto = new Contenedor("./Productos.txt")
 
 
 
-console.log(producto.getAllSync())
+console.log(producto.getAll())
 
 
 /* Guardar varios objetos por vez el funcionamiento es aleatorio y guarda cualquiera */
