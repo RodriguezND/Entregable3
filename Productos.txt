@@ -6,14 +6,14 @@
       "ID": 1
    },
    {
-      "title": "Queso",
-      "price": "500",
+      "title": "Yogur",
+      "price": "780",
       "url": "http: bla",
       "ID": 2
    },
    {
       "title": "Helado",
-      "price": "700",
+      "price": "200",
       "url": "http: bla",
       "ID": 3
    }
